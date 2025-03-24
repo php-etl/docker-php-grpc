@@ -9,6 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        variant:
+          - platform: 'linux/amd64,linux/arm64'
+            image: 8.4-cli-alpine3.21
+            tags: |
+              ghcr.io/php-etl/php-grpc:8.4-cli
+          - platform: 'linux/amd64,linux/arm64'
+            image: 8.4-zts-alpine3.21
+            tags: |
+              ghcr.io/php-etl/php-grpc:8.4-zts
+
     steps:
       - uses: actions/checkout@v2
 
@@ -28,14 +40,25 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          platforms: linux/amd64,linux/arm64
+          platforms: ${{ matrix.variant.platform }}
           build-args: |
-            PHP_IMAGE=8.4-cli-alpine3.21
-          tags: |
-            ghcr.io/spiral/php-grpc:8.4
+            PHP_IMAGE=${{ matrix.variant.image }}
+          tags: ${{ matrix.variant.tags }}
 
   build_xdebug:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        variant:
+          - platform: 'linux/amd64,linux/arm64'
+            image: 8.4-cli-alpine3.21
+            tags: |
+              ghcr.io/php-etl/php-grpc:8.4-cli-xdebug
+          - platform: 'linux/amd64,linux/arm64'
+            image: 8.4-zts-alpine3.21
+            tags: |
+              ghcr.io/php-etl/php-grpc:8.4-zts-xdebug
 
     steps:
       - uses: actions/checkout@v2
@@ -56,9 +79,8 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          platforms: linux/amd64,linux/arm64
+          platforms: ${{ matrix.variant.platform }}
           build-args: |
-            PHP_IMAGE=8.4-cli-alpine3.21
+            PHP_IMAGE=${{ matrix.variant.image }}
             XDEBUG_ENABLED=true
-          tags: |
-            ghcr.io/spiral/php-grpc:8.4
+          tags: ${{ matrix.variant.tags }}
