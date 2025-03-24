@@ -4,17 +4,20 @@
 
 ---
 
-PHP version: 8.1.3
+Enabled extensions
+---
 
-Enabled extensions:
-- opcache
-- zip
-- xsl
-- dom
-- exif
-- intl
-- pcntl
-- bcmath
-- sockets
-- protobuf
-- grpc
+| Extension | PHP 8.1 | PHP 8.2 | PHP 8.3 | PHP 8.4 |
+|-----------|---------|---------|---------|---------|
+| opcache   | ✅       | ✅       | ✅       | ✅       |
+| zip       | ✅       | ✅       | ✅       | ✅       |
+| xsl       | ✅       | ✅       | ✅       | ✅       |
+| dom       | ✅       | ✅       | ✅       | ✅       |
+| exif      | ✅       | ✅       | ✅       | ✅       |
+| intl      | ✅       | ✅       | ✅       | ✅       |
+| pcntl     | ✅       | ✅       | ✅       | ✅       |
+| bcmath    | ✅       | ✅       | ✅       | ✅       |
+| sockets   | ✅       | ✅       | ✅       | ✅       |
+| protobuf  | ✅       | ✅       | ✅       | ✅       |
+| grpc      | ✅       | ✅       | ✅       | ✅       |
+
