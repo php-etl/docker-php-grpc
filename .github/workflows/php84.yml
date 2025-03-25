@@ -29,11 +29,11 @@ jobs:
           - platform: 'linux/amd64,linux/arm64'
             image: 8.4-cli-alpine3.21
             tags: |
-              ${{ env.REGISTRY }}/${{ github.repository_owner }}/php-grpc:8.4-cli
+              ghcr.io/php-etl/php-grpc:8.4-cli
           - platform: 'linux/amd64,linux/arm64'
             image: 8.4-zts-alpine3.21
             tags: |
-              ${{ env.REGISTRY }}/${{ github.repository_owner }}/php-grpc:8.4-zts
+              ghcr.io/php-etl/php-grpc:8.4-zts
 
     steps:
       - uses: actions/checkout@v2
@@ -74,11 +74,11 @@ jobs:
           - platform: 'linux/amd64,linux/arm64'
             image: 8.4-cli-alpine3.21
             tags: |
-              ${{ env.REGISTRY }}/${{ github.repository_owner }}/php-grpc:8.4-cli-xdebug
+              ghcr.io/php-etl/php-grpc:8.4-cli-xdebug
           - platform: 'linux/amd64,linux/arm64'
             image: 8.4-zts-alpine3.21
             tags: |
-              ${{ env.REGISTRY }}/${{ github.repository_owner }}/php-grpc:8.4-zts-xdebug
+              ghcr.io/php-etl/php-grpc:8.4-zts-xdebug
 
     steps:
       - uses: actions/checkout@v2
